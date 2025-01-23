@@ -6,16 +6,24 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
     result = float("nan")
     if operador == '+':
         result = num1 + num2
+    elif operador == '-':
+        result = num1 - num2
+    elif operador == '/':
+        result = num1 / num2
+    elif operador == '*':
+        result = num1 * num2
     elif operador == '%':
         result = num1 % num2
     elif operador == '^':
         result = num1 ** num2
-
     return result
 
 def calculadora_v2(num1: float, num2: float, operador: str) -> float:
     operacoes = {
         "+": lambda: num1 + num2,
+        "-": lambda: num1 - num2,
+        "/": lambda: num1 / num2,
+        "*": lambda: num1 * num2,
         "%": lambda: num1 % num2,
         "^": lambda: num1 ** num2,
     }
@@ -29,6 +37,9 @@ def calculadora_v2(num1: float, num2: float, operador: str) -> float:
 def calculadora_v3(num1: float, num2: float, operador: str) -> float:
     operadores = {
         "+": operator.add,
+        "-": operator.sub,
+        "/": operator.truediv,
+        "*": operator.mul,
         "%": operator.mod,
         "^": operator.pow}
 
@@ -43,7 +54,10 @@ def calculadora_v4(num1: float, num2: float, operador: str) -> float:
         return float("nan")
 
     operacoes = {
+        "+": num1 + num2,
+        "-": num1 - num2,
         "/": num1 / num2,
+        "*": num1 * num2,
         "%": num1 % num2,
         "^": num1 ** num2
     }
