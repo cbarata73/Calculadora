@@ -2,16 +2,22 @@ import os
 import time
 import operator
 
+
+
 def calculadora(num1: float, num2: float, operador: str) -> float:
     result = float("nan")
     if operador == '+':
         result = num1 + num2
+    elif operador == '*':
+        result = num1 * num2
     elif operador == '%':
         result = num1 % num2
     elif operador == '^':
         result = num1 ** num2
 
     return result
+
+
 
 def calculadora_v2(num1: float, num2: float, operador: str) -> float:
     operacoes = {
@@ -26,16 +32,19 @@ def calculadora_v2(num1: float, num2: float, operador: str) -> float:
     return float("nan")
 
 
+
 def calculadora_v3(num1: float, num2: float, operador: str) -> float:
     operadores = {
         "+": operator.add,
         "%": operator.mod,
-        "^": operator.pow}
+        "^": operator.pow,
+    }
 
     if operador in operadores:
         return operadores[operador](num1, num2)
 
     return float("nan")
+
 
 # esta versão quando tentamos o expoente de 0, ele retornava um erro, foi retificado
 def calculadora_v4(num1: float, num2: float, operador: str) -> float:
@@ -45,7 +54,7 @@ def calculadora_v4(num1: float, num2: float, operador: str) -> float:
     operacoes = {
         "/": num1 / num2,
         "%": num1 % num2,
-        "^": num1 ** num2
+        "^": num1 ** num2,
     }
 
     return operacoes.get(operador, float("nan"))
@@ -58,21 +67,21 @@ if __name__ == "__main__":
         try:
             print('Calculadora')
             print('----------------------------------\n')
-            numero1: float = float(input('Introduza o primeiro número:'))
-            numero2: float = float(input('Introduza o segundo número:'))
-            operacao: str = input('Introduza a operação a realizar (+ - / *) ou (% ^):')
-            print(f'O resultado: {calculadora(numero1, numero2, operacao)}')
+            numero1: float = float(input('Introduza o primeiro número: '))
+            numero2: float = float(input('Introduza o segundo número: '))
+            operacao: str = input('Introduza a operação a realizar (+ - / * %) ou (^): ')
+            print(f'O resultado: {calculadora(numero1, numero2, operacao)}')  # Usa versão 1 por padrão
             print()
-            cont: str = input('Deseja continuar? (s/n):').lower()
+            cont: str = input('Deseja continuar? (s/n): ').lower()
             if cont == 'n':
                 break
 
         except ValueError:
-            print('Dados inválidos!-> Tente novamente!')
+            print('Dados inválidos! -> Tente novamente!')
             time.sleep(2)
 
         except ZeroDivisionError:
-            print('Impossivel dividir por zero!-> Tente novamente!')
+            print('Impossível dividir por zero! -> Tente novamente!')
             time.sleep(2)
 
     print('\nVolte sempre!\n')
