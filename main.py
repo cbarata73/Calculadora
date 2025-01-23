@@ -1,7 +1,7 @@
 import os
 import time
 import operator
-
+#isto é um teste a ver se altera lá
 
 
 def calculadora(num1: float, num2: float, operador: str) -> float:
