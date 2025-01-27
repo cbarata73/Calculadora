@@ -17,6 +17,8 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
             return float("nan")
         result = num1 / num2
     elif operador == '%':
+        if num2 == 0:
+            return float("nan")
         result = num1 % num2
     elif operador == '^':
         result = num1 ** num2
