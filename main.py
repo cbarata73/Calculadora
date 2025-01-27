@@ -22,7 +22,7 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
         result = num1 ** num2
     return result
 
-
+aux = {"Nome": "João", "Idade": 25, "Profissão": "Programador"}
 
 def calculadora_v2(num1: float, num2: float, operador: str) -> float:
     operacoes = {
