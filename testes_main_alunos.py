@@ -7,6 +7,9 @@ class TestCalculadora(unittest.TestCase):
     def teste_operacoes_basicas(self):
     # Teste operações básicas + - * / % ^
         self.assertEqual(calculadora(2, 3, '+'), 5)
+        self.assertEqual(calculadora(7, 4, '-'), 3)
+        self.assertEqual(calculadora(2, 4, '*'), 8)
+        self.assertEqual(calculadora(6, 12, '/'), 0.5)
 
     def teste_operacoes_diversas(self):
         # Teste divisão por zero / %
