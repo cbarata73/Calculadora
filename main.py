@@ -1,8 +1,6 @@
 import os
 import time
 import operator
-#isto é um teste a ver se altera lá
-#Comentário teste
 
 def calculadora(num1: float, num2: float, operador: str) -> float:
     result = float("nan")
