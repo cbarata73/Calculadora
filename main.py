@@ -3,6 +3,11 @@ import time
 import operator
 
 def calculadora(num1: float, num2: float, operador: str) -> float:
+    """
+    Usar nan como valor inicial é uma boa prática. 
+    Se o operador fornecido não corresponder a nenhuma das opções válidas (+, -, etc.), a função retornará nan, 
+    sinalizando que o cálculo não pôde ser realizado.
+    """
     result = float("nan")
     if operador == '+':
         result = num1 + num2
@@ -22,7 +27,6 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
         result = num1 ** num2
     return result
 
-aux = {"Nome": "João", "Idade": 25, "Profissão": "Programador"}
 
 def calculadora_v2(num1: float, num2: float, operador: str) -> float:
     operacoes = {
@@ -38,7 +42,6 @@ def calculadora_v2(num1: float, num2: float, operador: str) -> float:
         return funcao()
 
     return float("nan")
-
 
 
 def calculadora_v3(num1: float, num2: float, operador: str) -> float:
