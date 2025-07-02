@@ -9,6 +9,7 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
     sinalizando que o cálculo não pôde ser realizado.
     """
     result = float("nan")
+
     if operador == '+':
         result = num1 + num2
     elif operador == '-':
@@ -29,6 +30,9 @@ def calculadora(num1: float, num2: float, operador: str) -> float:
 
 
 def calculadora_v2(num1: float, num2: float, operador: str) -> float:
+    if num2 == 0 and operador in ['/', '%']:
+        return float("nan")
+
     operacoes = {
         "+": lambda: num1 + num2,
         "-": lambda: num1 - num2,
@@ -45,6 +49,9 @@ def calculadora_v2(num1: float, num2: float, operador: str) -> float:
 
 
 def calculadora_v3(num1: float, num2: float, operador: str) -> float:
+    if num2 == 0 and operador in ['/', '%']:
+        return float("nan")
+
     operadores = {
         "+": operator.add,
         "-": operator.sub,
@@ -60,7 +67,7 @@ def calculadora_v3(num1: float, num2: float, operador: str) -> float:
     return float("nan")
 
 
-# esta versão quando tentamos o expoente de 0, ele retornava um erro, foi retificado
+# esta versão quando tentamos o expoente de 0, ela retornava um erro
 def calculadora_v4(num1: float, num2: float, operador: str) -> float:
     if num2 == 0 and operador in ['/', '%']:
         return float("nan")
@@ -87,7 +94,7 @@ if __name__ == "__main__":
             numero1: float = float(input('Introduza o primeiro número: '))
             numero2: float = float(input('Introduza o segundo número: '))
             operacao: str = input('Introduza a operação a realizar (+ - / * %) ou (^): ')
-            print(f'O resultado: {calculadora(numero1, numero2, operacao)}')  # Usa versão 1 por padrão
+            print(f'O resultado: {calculadora_v4(numero1, numero2, operacao)}')  # Usa versão 1 por padrão
             print()
             cont: str = input('Deseja continuar? (s/n): ').lower()
             if cont == 'n':
